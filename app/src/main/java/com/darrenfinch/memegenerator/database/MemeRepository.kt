@@ -16,7 +16,7 @@ class MemeRepository {
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://api.imgflip.com/")
         .addConverterFactory(GsonConverterFactory.create())
-        .build();
+        .build()
 
     private val client = retrofit.create(MemesService::class.java)
     private val memeListLiveData = MutableLiveData<List<MemePicture>>()
@@ -28,7 +28,7 @@ class MemeRepository {
             }
             override fun onResponse(call: Call<MemeListResponse>, response: Response<MemeListResponse>) {
                 if(response.body() != null) {
-                    val randomMemePictures = generateRandomMemePictures(response)
+                    val randomMemePictures = generateRandomMemePictures(response.body()!!)
                     memeListLiveData.postValue(randomMemePictures)
                 }
             }
@@ -36,8 +36,8 @@ class MemeRepository {
         return memeListLiveData
     }
 
-    private fun generateRandomMemePictures(response: Response<MemeListResponse>) : List<MemePicture> {
-        val allMemesList = response.body()!!.data.memePictures
+    private fun generateRandomMemePictures(response: MemeListResponse) : List<MemePicture> {
+        val allMemesList = response.data.memePictures
         val randomMemesList = mutableListOf<MemePicture>()
         for(i in 0..NUM_OF_RANDOM_MEMES) {
             randomMemesList.add(allMemesList[((Math.random() * allMemesList.size).toInt())])
