@@ -1,0 +1,46 @@
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorTextDark</item>
+        <item name="android:textColorPrimaryInverse">@color/colorTextLight</item>
+        <item name="textInputStyle">@style/TextInputStyle</item>
+<!--        <item name="android:toolbarStyle">@style/ToolbarStyle</item>-->
+    </style>
+
+    <style name="TextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxCornerRadiusBottomEnd">500dp</item>
+        <item name="boxCornerRadiusBottomStart">500dp</item>
+        <item name="boxCornerRadiusTopEnd">500dp</item>
+        <item name="boxCornerRadiusTopStart">500dp</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="boxBackgroundColor">@color/colorWidget</item>
+    </style>
+
+    <style name="ToolbarStyle" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="titleTextColor">@color/colorTextLight</item>
+<!--        <item name="actionOverflowButtonStyle">@style/Overflow</item>-->
+    </style>
+
+    <style name="Overflow" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="srcCompat">@drawable/ic_menu</item>
+    </style>
+
+    <style name="H1Dark" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@color/colorTextDark</item>
+    </style>
+
+    <style name="H1Light" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@color/colorTextLight</item>
+    </style>
+
+    <style name="H2Dark" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/colorTextDark</item>
+    </style>
+
+    <style name="H2Light" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/colorTextLight</item>
+    </style>
+
+</resources>

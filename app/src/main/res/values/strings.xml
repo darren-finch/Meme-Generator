@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Troll Helper</string>
+    <string name="pick_your_meme">Pick Your Meme</string>
+    <string name="meme">Meme</string>
+    <string name="edit_meme">EDIT MEME</string>
+    <string name="top_text">Top Text</string>
+    <string name="bottom_text">Bottom Text</string>
+    <string name="share">Share…</string>
+    <string name="increase_font_size">Increase Font Size</string>
+    <string name="decrease_font_size">Decrease Font Size</string>
+    <string name="see_bottom_text">See Bottom Text</string>
+    <string name="see_top_text">See Top Text</string>
+</resources>
