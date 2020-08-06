@@ -21,28 +21,18 @@ class MemeRepository {
     private val client = retrofit.create(MemesService::class.java)
     private val memeListLiveData = MutableLiveData<List<MemePicture>>()
 
-    fun getRandomMemePictures() : LiveData<List<MemePicture>> {
+    fun getAllMemePictures() : LiveData<List<MemePicture>> {
         client.getAllMemes().enqueue(object : Callback<MemeListResponse> {
             override fun onFailure(call: Call<MemeListResponse>, t: Throwable) {
                 memeListLiveData.postValue(null)
             }
             override fun onResponse(call: Call<MemeListResponse>, response: Response<MemeListResponse>) {
                 if(response.body() != null) {
-                    val randomMemePictures = generateRandomMemePictures(response.body()!!)
-                    memeListLiveData.postValue(randomMemePictures)
+                    memeListLiveData.postValue(response.body()!!.data.memePictures)
                 }
             }
         })
         return memeListLiveData
-    }
-
-    private fun generateRandomMemePictures(response: MemeListResponse) : List<MemePicture> {
-        val allMemesList = response.data.memePictures
-        val randomMemesList = mutableListOf<MemePicture>()
-        for(i in 0..NUM_OF_RANDOM_MEMES) {
-            randomMemesList.add(allMemesList[((Math.random() * allMemesList.size).toInt())])
-        }
-        return randomMemesList
     }
 
     //If there is a way to query this meme generator API, I haven't found it or I'm too dumb
